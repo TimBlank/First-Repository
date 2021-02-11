@@ -2,7 +2,7 @@ pipeline{
   agent any  
   environment{
     NEW_VERSION = '1.3.0'
-    SERVER_CREDENTIALS = credentials('global')
+    //SERVER_CREDENTIALS = credentials('global')
   }
   stages {   
     stage("build"){
@@ -26,7 +26,7 @@ pipeline{
         
         steps{
           echo 'deploying the application...'
-          echo "deploy with ${SERVER_CREDENTIALS}"
+          //echo "deploy with ${SERVER_CREDENTIALS}"
           withCredentials([
             usernamePassword(credentials: 'global',usernameVariable: USER, passwordVaribale: PWD)
           ]){
@@ -48,7 +48,7 @@ pipeline{
     }
     failure{
       echo CHANGE_AUTHOR
-      echo "sending Failure to: ${CHANGE_AUTHOR_EMAIL}" 
+      //echo "sending Failure to: ${CHANGE_AUTHOR_EMAIL}" 
       //send masage to CHANGE_AUTHOR_EMAIL withe fail satus 
     }
   
