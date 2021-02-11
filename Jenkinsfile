@@ -28,9 +28,9 @@ pipeline{
         
         steps{
           echo 'deploying the application...'
-          echo "deploy with ${SERVER_CREDENTIALS}"
+          //echo "deploy with ${SERVER_CREDENTIALS}"
         }
-     
+    }
    }
   post{
     always{
@@ -46,7 +46,5 @@ pipeline{
       echo "sending Failure to: ${CHANGE_AUTHOR_EMAIL}" 
       //send masage to CHANGE_AUTHOR_EMAIL withe fail satus 
     }
-  
   }
-  
 }
