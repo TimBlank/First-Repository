@@ -3,8 +3,8 @@ pipeline{
   environment{
     NEW_VERSION = '1.3.0'
     SERVER_CREDENTIALS = credentials('global')
-    CHANGE_AUTHOR = "TIM B."
-    CHANGE_AUTHOR_EMAIL = "Test@Test.de"
+    //CHANGE_AUTHOR = "TIM B."
+    //CHANGE_AUTHOR_EMAIL = "Test@Test.de"
   }
   tools {
     maven 'Maven'
@@ -58,8 +58,8 @@ pipeline{
       //send message to Team every Magaer build
     }
     failure{
-      echo "${CHANGE_AUTHOR}"
-      echo "sending Failure to: ${CHANGE_AUTHOR_EMAIL}" 
+      //echo "${CHANGE_AUTHOR}"
+      //echo "sending Failure to: ${CHANGE_AUTHOR_EMAIL}" 
       //send masage to CHANGE_AUTHOR_EMAIL withe fail satus 
     }
   }
