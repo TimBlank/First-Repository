@@ -26,6 +26,7 @@ pipeline{
         
         steps{
           echo 'deploying the application...'
+          echo "deploy with ${SERVER_CREDENTIALS}"
         }
      }
    }
