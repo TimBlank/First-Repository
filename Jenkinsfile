@@ -27,13 +27,13 @@ pipeline{
         steps{
           echo 'deploying the application...'
           echo "deploy with ${SERVER_CREDENTIALS}"
-         // withCredentials([
-          //  usernamePassword(credentials: 'global',usernameVariable: USER, passwordVaribale: PWD)
-          //]){
-          //  echo "Username: ${USER}"
-         //   echo "PW: ${PWD}"
-          //  sh "some script ${USER} ${PWD}"
-          //}
+          withCredentials([
+            usernamePassword(credentials: 'global',usernameVariable: USER, passwordVaribale: PWD)
+          ]){
+            echo "Username: ${USER}"
+            echo "PW: ${PWD}"
+            sh "some script ${USER} ${PWD}"
+          }
         }
      }
    }
@@ -48,7 +48,7 @@ pipeline{
     }
     failure{
       echo "${CHANGE_AUTHOR}"
-      //echo "sending Failure to: ${CHANGE_AUTHOR_EMAIL}" 
+      echo "sending Failure to: ${CHANGE_AUTHOR_EMAIL}" 
       //send masage to CHANGE_AUTHOR_EMAIL withe fail satus 
     }
   
