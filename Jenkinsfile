@@ -1,9 +1,14 @@
 pipeline{
   agent any  
+  environment{
+    NEW_VERSION = '1.3.0'
+    SERVER_CREDENTIALS = credentials('global')
+  }
   stages {   
     stage("build"){
         steps{
           echo 'building the application...'
+          echo "building Version: ${NEW_VERSION}"
         }
      }
     stage("test"){
@@ -14,6 +19,7 @@ pipeline{
       }
       steps{
           echo 'testining the application...'
+          script
       }
      }
     stage("deploy"){
@@ -34,7 +40,8 @@ pipeline{
     }
     failure{
       echo CHANGE_AUTHOR
-      //send masage to CHANGE_AUTHOR withe fail satus 
+      echo "sending Failure to: ${CHANGE_AUTHOR_EMAIL}" 
+      //send masage to CHANGE_AUTHOR_EMAIL withe fail satus 
     }
   
   }
