@@ -9,17 +9,29 @@ pipeline{
   tools {
     maven 'Maven'
   }
+  parameter{
+    string(name: 'VERSION_NAME', defaltValue: '', descriptio: 'Version to deploy on prod')
+    choice(name: 'VERSION', choices: ['1.0.0', '0.14.1', '2.1.1'], desceiption:'')
+    booleanParam(name: 'executeTest', defaultValue: true, description: 'execute the Testingphase')
+    
+  }
   stages {   
     stage("build"){
+      when{
+        expression{
+          BRANCH_NAME == 'Dev' || BRANCH_NAME =='master'
+        }
+      }
         steps{
           echo 'building the application...'
           echo "building Version: ${NEW_VERSION}"
         }
      }
     stage("test"){
+      
       when{
         expression{
-          BRANCH_NAME == 'Dev' || BRANCH_NAME =='master'
+          params.executeTests
         }
       }
       steps{
@@ -30,7 +42,7 @@ pipeline{
     stage("deploy"){
         
         steps{
-          echo 'deploying the application...'
+          echo "deploying the application ${params.VERSION}"
           //echo "deploy with ${SERVER_CREDENTIALS}"
         }
     }
