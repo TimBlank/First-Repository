@@ -10,9 +10,9 @@ pipeline{
     maven 'Maven'
   }
   parameter{
-    string(name: 'VERSION_NAME', defaltValue: '', description: 'Version to deploy on prod')
-    choice(name: 'VERSION', choices: ['1.0.0', '0.14.1', '2.1.1'], description:'')
-    booleanParam(name: 'executeTest', defaultValue: true, description: 'execute the Testingphase')
+    //string(name: 'VERSION_NAME', defaltValue: '', description: 'Version to deploy on prod')
+    //choice(name: 'VERSION', choices: ['1.0.0', '0.14.1', '2.1.1'], description:'')
+    //booleanParam(name: 'executeTest', defaultValue: true, description: 'execute the Testingphase')
     
   }
   stages {   
@@ -24,7 +24,7 @@ pipeline{
       }
         steps{
           echo 'building the application...'
-          echo "building Version: ${NEW_VERSION}"
+          //echo "building Version: ${NEW_VERSION}"
         }
      }
     stage("test"){
@@ -42,7 +42,8 @@ pipeline{
     stage("deploy"){
         
         steps{
-          echo "deploying the application ${params.VERSION}"
+          echo "deploying the application....."
+          //echo "deploying the application ${params.VERSION}"
           //echo "deploy with ${SERVER_CREDENTIALS}"
         }
     }
