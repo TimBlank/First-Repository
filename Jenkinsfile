@@ -6,6 +6,9 @@ pipeline{
     CHANGE_AUTHOR = "TIM B."
     CHANGE_AUTHOR_EMAIL = "Test@Test.de"
   }
+  tools {
+    maven 'Maven'
+  }
   stages {   
     stage("build"){
         steps{
