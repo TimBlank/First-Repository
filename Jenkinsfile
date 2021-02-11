@@ -3,6 +3,8 @@ pipeline{
   environment{
     NEW_VERSION = '1.3.0'
     SERVER_CREDENTIALS = credentials('global')
+    CHANGE_AUTHOR = "TIM B."
+    CHANGE_AUTHOR_EMAIL = "Test@Test.de"
   }
   stages {   
     stage("build"){
@@ -27,15 +29,8 @@ pipeline{
         steps{
           echo 'deploying the application...'
           echo "deploy with ${SERVER_CREDENTIALS}"
-          withCredentials([
-            usernamePassword(credentials: 'global',usernameVariable: USER, passwordVaribale: PWD)
-          ]){
-            echo "Username: ${USER}"
-            echo "PW: ${PWD}"
-            sh "some script ${USER} ${PWD}"
-          }
         }
-     }
+     
    }
   post{
     always{
