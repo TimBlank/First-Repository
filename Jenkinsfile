@@ -10,8 +10,8 @@ pipeline{
     maven 'Maven'
   }
   parameter{
-    string(name: 'VERSION_NAME', defaltValue: '', descriptio: 'Version to deploy on prod')
-    choice(name: 'VERSION', choices: ['1.0.0', '0.14.1', '2.1.1'], desceiption:'')
+    string(name: 'VERSION_NAME', defaltValue: '', description: 'Version to deploy on prod')
+    choice(name: 'VERSION', choices: ['1.0.0', '0.14.1', '2.1.1'], description:'')
     booleanParam(name: 'executeTest', defaultValue: true, description: 'execute the Testingphase')
     
   }
