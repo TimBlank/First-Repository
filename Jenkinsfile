@@ -1,20 +1,19 @@
 pipeline{
   agent any  
-  environment{
-    NEW_VERSION = '1.3.0'
+  /*environment{
+    //NEW_VERSION = '1.3.0'
     //SERVER_CREDENTIALS = credentials('global')
     //CHANGE_AUTHOR = "TIM B."
     //CHANGE_AUTHOR_EMAIL = "Test@Test.de"
-  }
-  tools {
-    maven 'Maven'
-  }
+  //}
+  //tools {
+   // maven 'Maven'
+  //}
  // parameters {
     //string(name: 'VERSION_NAME', defaltValue: '', description: 'Version to deploy on prod')
     //choice(name: 'VERSION', choices: ['1.0.0', '0.14.1', '2.1.1'], description:'')
     //booleanParam(name: 'executeTest', defaultValue: true, description: 'execute the Testingphase')
-    
-  //}
+  //}*/
   stages {   
     stage("build"){
       //when{
@@ -58,7 +57,7 @@ pipeline{
       //send message to Team every Magaer build
     }
     failure{
-      cho 'Team failed!'
+      echo 'Team failed!'
       //echo "${CHANGE_AUTHOR}"
       //echo "sending Failure to: ${CHANGE_AUTHOR_EMAIL}" 
       //send masage to CHANGE_AUTHOR_EMAIL withe fail satus 
