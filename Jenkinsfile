@@ -1,11 +1,11 @@
 pipeline{
   agent any  
-  /*environment{
-    //NEW_VERSION = '1.3.0'
-    //SERVER_CREDENTIALS = credentials('global')
-    //CHANGE_AUTHOR = "TIM B."
-    //CHANGE_AUTHOR_EMAIL = "Test@Test.de"
-  //}
+  environment{
+    NEW_VERSION = '1.3.0'
+    SERVER_CREDENTIALS = credentials('global')
+    CHANGE_AUTHOR = "TIM B."
+    CHANGE_AUTHOR_EMAIL = "Test@Test.de"
+  }
   //tools {
    // maven 'Maven'
   //}
@@ -13,7 +13,7 @@ pipeline{
     //string(name: 'VERSION_NAME', defaltValue: '', description: 'Version to deploy on prod')
     //choice(name: 'VERSION', choices: ['1.0.0', '0.14.1', '2.1.1'], description:'')
     //booleanParam(name: 'executeTest', defaultValue: true, description: 'execute the Testingphase')
-  //}*/
+  //}
   stages {   
     stage("build"){
       //when{
