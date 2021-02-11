@@ -6,9 +6,9 @@ pipeline{
     CHANGE_AUTHOR = "TIM B."
     CHANGE_AUTHOR_EMAIL = "Test@Test.de"
   }
-  tools {
-    maven 'Maven'
-  }
+  //tools {
+   // maven 'Maven'
+  //}
   //parameters {
     //string(name: 'VERSION_NAME', defaltValue: '', description: 'Version to deploy on prod')
     //choice(name: 'VERSION', choices: ['1.0.0', '0.14.1', '2.1.1'], description:'')
