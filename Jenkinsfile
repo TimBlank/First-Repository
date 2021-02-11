@@ -29,11 +29,11 @@ pipeline{
      }
     stage("test"){
       
-      when{
-        expression{
+     // when{
+      //  expression{
          // params.executeTests
-        }
-      }
+       // }
+      //}
       steps{
           echo 'testining the application...'
           //script
