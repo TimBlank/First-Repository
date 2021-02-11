@@ -23,4 +23,17 @@ pipeline{
         }
      }
    }
+  post{
+    always{
+      //
+    }
+    success{
+      //send message to Team every Magaer build
+    }
+    failure{
+      //send masage to admin withe fail satus 
+    }
+  
+  }
+  
 }
