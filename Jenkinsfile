@@ -2,7 +2,7 @@ pipeline{
   agent any  
   environment{
     NEW_VERSION = '1.3.0'
-    SERVER_CREDENTIALS = credentials('global')
+    //SERVER_CREDENTIALS = credentials('global')
     //CHANGE_AUTHOR = "TIM B."
     //CHANGE_AUTHOR_EMAIL = "Test@Test.de"
   }
@@ -17,11 +17,11 @@ pipeline{
   //}
   stages {   
     stage("build"){
-      when{
-        expression{
-          BRANCH_NAME == 'Dev' || BRANCH_NAME =='master'
-        }
-      }
+      //when{
+        //expression{
+         // BRANCH_NAME == 'Dev' || BRANCH_NAME =='master'
+        //}
+      //}
         steps{
           echo 'building the application...'
           //echo "building Version: ${NEW_VERSION}"
@@ -58,6 +58,7 @@ pipeline{
       //send message to Team every Magaer build
     }
     failure{
+      cho 'Team failed!'
       //echo "${CHANGE_AUTHOR}"
       //echo "sending Failure to: ${CHANGE_AUTHOR_EMAIL}" 
       //send masage to CHANGE_AUTHOR_EMAIL withe fail satus 
