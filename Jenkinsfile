@@ -1,20 +1,20 @@
 pipeline{
-
-  agent any
-  
-  stages {
-    
+  agent any  
+  stages {   
     stage("build"){
-        
         steps{
           echo 'building the application...'
         }
      }
     stage("test"){
-        
-        steps{
-          echo 'testining the application...'
+      when{
+        expression{
+          BRANCH_NAME == 'Dev' || BRANCH_NAME =='master'
         }
+      }
+      steps{
+          echo 'testining the application...'
+      }
      }
     stage("deploy"){
         
@@ -25,13 +25,16 @@ pipeline{
    }
   post{
     always{
+      echo 'I´m done Master'
       //
     }
     success{
+      echo 'Team success!'
       //send message to Team every Magaer build
     }
     failure{
-      //send masage to admin withe fail satus 
+      echo CHANGE_AUTHOR
+      //send masage to CHANGE_AUTHOR withe fail satus 
     }
   
   }
