@@ -27,6 +27,13 @@ pipeline{
         steps{
           echo 'deploying the application...'
           echo "deploy with ${SERVER_CREDENTIALS}"
+          withCredentials([
+            usernamePassword(credentials: 'global',usernameVariable: USER, passwordVaribale: PWD)
+          ]){
+            echo "Username: ${USER}"
+            echo "PW: ${PWD}"
+            sh "some script ${USER} ${PWD}"
+          }
         }
      }
    }
